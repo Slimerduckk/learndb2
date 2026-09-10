@@ -1,7 +1,9 @@
 services:
 
   web:
-    image: httpd
+    build:
+      context: .
+      dockerfile: dockerfile
     ports:
       - 8000:80
     volumes:
