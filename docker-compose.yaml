@@ -1,29 +1,25 @@
 services:
-
   web:
-    build:
+    build: 
       context: .
       dockerfile: dockerfile
     ports:
       - 8000:80
     volumes:
       - ./html:/usr/local/apache2/htdocs
-
-      # Use root/example as user/password credentials
-
   db:
     image: mariadb
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: example
+    ports:
+      - 33061:3306
     volumes:
-      - learndbdata:/var/lib/mysql
-
+      - ta24alearndbdata:/var/lib/mysql
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
-
 volumes:
-  learndbdata:
+
